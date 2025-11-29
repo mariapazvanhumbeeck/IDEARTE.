@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Catálogo - Idearte</title>
+    <link rel="stylesheet" href="estilos.css"> <!-- tu CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<style>
+    /* Tipografía nueva */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #fff;
+}
+
+/* Título */
+.titulo-catalogo {
+    text-align: center;
+    font-size: 2.2rem;
+    background: linear-gradient(90deg, #ff7ae0, #ffca7a, #7ae8ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 40px;
+}
+
+/* Contenedor de tarjetas */
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+    padding: 0 40px;
+}
+
+/* Card */
+.card {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.card img {
+    width: 100%;
+    border-radius: 15px;
+    margin-bottom: 10px;
+}
+
+.card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+    background: linear-gradient(90deg, #8f75ff, #ff75b7, #ffc975);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.card p {
+    font-size: 0.95rem;
+    color: #333;
+    line-height: 1.4;
+}
+
+/* Hover */
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+</style>
+<body>
+    <section class="catalogo">
+    <h2 class="titulo-catalogo">Catálogo de Diseños</h2>
+
+    <div class="cards-container">
+
+        <div class="card">
+            <img src="https://i.etsystatic.com/52622572/r/il/1a6760/6014466782/il_570xN.6014466782_s4di.jpg" alt="Diseño 1">
+            <h3>Diseño Aurora</h3>
+            <p>Tonos suaves en degradé que evocan paz, ideal para identidades visuales modernas.</p>
+        </div>
+
+        <div class="card">
+            <img src="https://images.vexels.com/media/users/3/124649/raw/c6554b99d6f4c77a3e95c0eb898a0392-flat-geometric-business-card-set.jpg" alt="Diseño 2">
+            <h3>Diseño Prisma</h3>
+            <p>Composición geométrica colorida con estilo vibrante y juvenil.</p>
+        </div>
+
+        <div class="card">
+            <img src="https://brandpacks.com/wp-content/uploads/edd/2022/09/flower-wedding-invitation-card-template-cover.jpg" alt="Diseño 3">
+            <h3>Diseño Boreal</h3>
+            <p>Inspirado en la aurora boreal, combina luces y sombras en un ambiente mágico.</p>
+        </div>
+
+        <div class="card">
+            <img src="https://cdn.shopify.com/s/files/1/0734/3128/6051/files/Free_Floral_Wedding_Invitation_Template_1024x1024.jpg?v=1722927504" alt="Diseño 4">
+            <h3>Diseño Abstracto</h3>
+            <p>Formas suaves con colores cálidos, perfecto para proyectos artísticos.</p>
+        </div>
+
+        <div class="card">
+            <img src="https://i.pinimg.com/736x/36/80/cc/3680cc51ac4a5fd052e810722d853609.jpg" alt="Diseño 5">
+            <h3>Diseño Minimal Soft</h3>
+            <p>Paleta pastel + espacios limpios para un estilo elegante y contemporáneo.</p>
+        </div>
+
+    </div>
+</section>
+
+
+</body>
+</html>

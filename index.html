@@ -1,194 +1,771 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width">
-  <title>IDEARTE</title>
-  <link rel="stylesheet" href="/static/css/idearte.css">
-</head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IDEARTE</title>
+
 <style>
-  body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background-color: #c08955;
-      color: #fff;
-    }
-      #encabezado {
-        position: fixed; 
-        top: 0;
-        left: 0;
-        width: 100%;          
-        height: 80px;        
-        background: #c08955;
-        display: flex;
-        justify-content: space-between; 
-        align-items: center;   
-        padding: 0 40px;
-    }
+/* -------- PALETA DEL LOGO -------- */
+:root {
+    --amarillo: #ffe86a;
+    --naranja: #f8b35d;
+    --rojo: #d87ca1;
+    --violeta: #8a69c0;
+    --azul: #5e8bd1;
+    --verde: #4db77c;
 
-
-.logo {
-  font-size: 1.8em;
-  font-weight: bold;
-  margin: 0;
+    --blanco: #ffffff;
+    --menu-bg: rgba(255, 255, 255, 0.25);
+    --menu-hover: rgba(255, 255, 255, 0.4);
+    --texto: #222;
 }
 
-
-.menu {
-  list-style: none;
-  display: flex;
-  gap:20px;
-  margin: 0;
-  padding: 0;
-}
-.menu li a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  padding: 8px 12px;
-  border-radius: 5px;
-  transition: 0.3s;
-}
-.menu li a:hover {
-  background: #8b5e3c;
-  color: yellow;
+body {
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+    background: #f5f5f5;
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+    background: #ffffff;
+    color: #4a4a4a;
+    line-height: 1.6;
 }
 
-    #principal {
-      padding: 20px;
-    }
-    .presentacion img {
-      width: 200px;
-      float: left;
-      margin-right: 15px;
-    }
-    .presentacion h2::before {
-      content: "★ ";
-      color: yellow;
-    }
-    .presentacion p {
-      text-align: justify;
-    }
+/* -------- HEADER -------- */
+header {
+    background: linear-gradient(
+        90deg,
+        var(--amarillo),
+        var(--naranja),
+        var(--rojo),
+        var(--violeta),
+        var(--azul),
+        var(--verde)
+    );
+    text-align: center;
+    padding: 30px 0 40px;
+    color: var(--blanco);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
 
-    .galeria {
-      display: flex;
-      gap: 10px;
-      margin-top: 15px;
-    }
-    .galeria img {
-      width: 100px;
-      border: 2px solid #fff;
-    }
-    .galeria img:hover {
-      transform: scale(1.1);
-      transition: 0.3s;
-    }
+/* LOGO */
+header h1 {
+    margin: 0;
+    font-size: 48px;
+    letter-spacing: 2px;
+}
 
-    .lista-trabajos ul {
-      list-style-type: square;
-    }
-    .lista-trabajos li::before {
-      content: "✔ ";
-      color: lightgreen;
-    }
-    .ultimas-img{
-    object-position: bottom right;
+header h2 {
+    margin: 5px 0 25px;
+    font-size: 18px;
+    font-weight: 300;
+}
 
-    }
-    #pie {
-      background: #8b5e3c;
-      text-align: center;
-      padding: 20px;
-      margin-top: 20px;
-    }
-    #comentarios {
-      margin-top: 10px;
-      padding: 8px;
-      width: 60%;
-    }
-    @media (max-width: 768px) {
-      .menu {
-        flex-direction: column;
-      }
-      .galeria {
-        flex-direction: column;
-        align-items: center;
-      }
-      .presentacion img {
-        float: none;
-        display: block;
-        margin: 0 auto 15px;
-      }
-      #comentarios {
-        width: 90%;
-      }
-    }
+/* MENÚ */
+nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--blanco);
+    background: var(--menu-bg);
+    padding: 10px 26px;
+    border-radius: 25px;
+    font-size: 17px;
+    transition: 0.25s;
+    backdrop-filter: blur(3px);
+}
+
+nav a:hover {
+    background: var(--menu-hover);
+    transform: translateY(-3px);
+}
+/* CONTENEDOR GENERAL */
+.sobre-nosotros-section {
+    background: #ffffff;
+    padding: 80px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* TARJETA */
+.sobre-nosotros-card {
+    width: 75%;
+    max-width: 900px;
+    background: #fff;
+    padding: 50px 60px;
+    border-radius: 25px;
+    transition: all 0.25s ease-in-out;
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.08);
+}
+
+/* HOVER: agranda + sombra */
+.sobre-nosotros-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0px 12px 30px rgba(0,0,0,0.15);
+}
+
+/* TÍTULO CON DEGRADÉ MULTICOLOR */
+.titulo-degrade {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    background: linear-gradient(90deg, #FFE76C, #FFAE6C, #FF7BC8, #8D7BFF, #59D1FF);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+/* PARRAFOS */
+.sobre-nosotros-card p {
+    font-size: 20px;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 18px;
+}
+
+.team-section {
+    padding: 80px 0;
+    text-align: center;
+    background: #fff;
+}
+
+.titulo-degrade {
+    font-size: 50px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    background: linear-gradient(90deg, #FFE76C, #FFAE6C, #FF7BC8, #8D7BFF, #59D1FF);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.team-section {
+    background: #fff;
+    padding: 60px 0;
+    text-align: center;
+}
+
+.titulo-degrade {
+    font-size: 50px;
+    font-weight: 700;
+    background: linear-gradient(90deg, #FFE76C, #FFAE6C, #FF7BC8, #8D7BFF, #59D1FF);
+    -webkit-background-clip: text;
+    color: transparent;
+    margin-bottom: 40px;
+}
+
+/* CONTENEDOR CON BOTONES */
+.carousel-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* CARRUSEL REAL */
+.team-carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    gap: 25px;
+    padding: 20px;
+    width: 80%;
+}
+
+.team-card {
+    min-width: 200px;     /* antes 250px */
+    max-width: 200px;     /* antes 250px */
+    background: #fff;
+    padding: 14px;        /* más chico */
+    border-radius: 16px;  /* antes 20px */
+    box-shadow: 0px 3px 10px rgba(0,0,0,0.12);
+    transition: .25s;
+}
+
+.team-card:hover {
+    transform: translateY(-6px); /* más suave */
+}
+
+.team-card img {
+    width: 100%;
+    height: 170px;        /* altura fija más chica */
+    object-fit: cover;
+    border-radius: 14px;
+}
+
+/* Títulos más chicos */
+.team-card h3 {
+    font-size: 1rem;      /* antes más grande */
+    margin: 8px 0 4px;
+    text-align: center;
+}
+
+/* Subtítulo (título profesional) */
+.team-card h4 {
+    font-size: 0.85rem;
+    color: #666;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 6px;
+}
+
+/* Descripción */
+.team-card p {
+    font-size: 0.75rem;
+    line-height: 1.2rem;
+    color: #555;
+    text-align: center;
+}
+
+.titulo-profesion {
+    display: block;
+    font-weight: 600;
+    color: #777;
+}
+
+/* BOTONES */
+.carousel-btn {
+    font-size: 40px;
+    background: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 12px;
+    box-shadow: 0px 3px 12px rgba(0,0,0,0.2);
+    transition: .2s;
+}
+
+.carousel-btn:hover {
+    transform: scale(1.1);
+}
+.servicios-section {
+    padding: 80px 0;
+    background: #ffffff;
+    text-align: center;
+}
+
+.titulo-degrade {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 50px;
+    background: linear-gradient(90deg, #FFE76C, #FFAE6C, #FF7BC8, #8D7BFF, #59D1FF);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.servicios-grid {
+    max-width: 1300px;
+    margin: auto;
+    display: grid;
+    gap: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    padding: 0 40px;
+}
+
+.servicio-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 25px 25px 35px;
+    text-align: left;
+    box-shadow: 0px 4px 18px rgba(0,0,0,0.12);
+    transition: 0.3s ease;
+}
+
+.servicio-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0px 10px 30px rgba(0,0,0,0.18);
+}
+
+.servicio-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 18px;
+    margin-bottom: 20px;
+}
+
+.servicio-card h3 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.servicio-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.servicio-card ul li {
+    font-size: 16px;
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 18px;
+}
+
+.servicio-card ul li::before {
+    content: "•";
+    color: #8D7BFF;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+.btn-idearte {
+    display: inline-block;
+    padding: 14px 30px;
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+    text-decoration: none;
+    border-radius: 40px;
+    background: linear-gradient(90deg, #ff6ec7, #ffcc00, #00e5ff, #7b00ff);
+    background-size: 300%;
+    transition: 0.4s ease-in-out;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.btn-idearte:hover {
+    background-position: 100% 0;
+    transform: scale(1.05);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
+/* FOOTER ESTILO IDEARTE */
+.footer-idearte {
+    background: linear-gradient(90deg, #ff6ec7, #ffcc00, #00e5ff, #7b00ff);
+    background-size: 300%;
+    padding: 40px 20px;
+    color: white;
+    animation: moverDegrade 12s infinite alternate ease-in-out;
+}
+
+@keyframes moverDegrade {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.footer-logo h2 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.footer-links h3,
+.footer-contacto h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li {
+    margin: 6px 0;
+}
+
+.footer-links ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.footer-links ul li a:hover {
+    text-decoration: underline;
+}
+
+.footer-contacto p {
+    margin: 5px 0;
+}
+
+.footer-redes a img {
+    width: 40px; 
+    height: 40px;
+    filter: drop-shadow(0px 0px 4px rgba(0,0,0,0.3));
+    transition: transform 0.3s ease;
+}
+
+.footer-redes a img:hover {
+    transform: scale(1.15);
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 14px;
+    opacity: 0.85;
+}
+/* Contenedor */
+.form-section {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+}
+
+/* Título degradado */
+.titulo-degrade {
+    font-size: 2rem;
+    text-align: center;
+    font-weight: 700;
+    background: linear-gradient(90deg, #ff84d8, #ffb067, #ffe679);
+    -webkit-background-clip: text;
+    color: transparent;
+    margin-bottom: 25px;
+}
+
+/* Formulario */
+.idearte-form {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 25px;
+    box-shadow: 0px 8px 25px rgba(0,0,0,0.08);
+}
+
+/* Inputs */
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    font-weight: 600;
+    margin-bottom: 5px;
+    display: block;
+    color: #444;
+    font-size: 0.95rem;
+}
+
+.idearte-form input,
+.idearte-form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    transition: .20s;
+}
+
+.idearte-form input:focus,
+.idearte-form textarea:focus {
+    border-color: #ff84d8;
+    box-shadow: 0px 0px 8px rgba(255, 132, 216, 0.3);
+    outline: none;
+}
+
+/* Botón IDEARTE */
+.btn-idearte {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    font-size: 1rem;
+    font-weight: 700;
+    color: white;
+    border-radius: 30px;
+    cursor: pointer;
+    background: linear-gradient(90deg, #ff75c4, #ff964f, #ffdd57);
+    transition: .25s;
+}
+
+.btn-idearte:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 6px 15px rgba(0,0,0,0.15);
+}
 </style>
+
+</head>
 <body>
+<header>
+    <h1>IDEARTE</h1>
+    <h2>Soluciones digitales</h2>
 
-  <header id="encabezado">
-    <h1 class="logo">IDEARTE</h1>
-    <p class="subtitulo">Soluciones digitales</p>
-    <span>
-      <ul class="menu">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Servicios</a></li>
-        <li><a href=#lista-trabajos>Trabajos</a></li>
-        <li><a href="#consultas">Consultas</a></li>
-      </ul>
-    </span>
-  </header>
+    <nav>
+        <ul>
+            <li><a href="#sobre-nosotros-section">Home</a></li>
+            <li><a href="#team-section">Nuestro equipo</a></li>
+            <li><a href="#servicios-section">Trabajos</a></li>
+            <li><a href="#form-section">Consultas</a></li>
+        </ul>
+    </nav>
+</header>
+<section class="sobre-nosotros-section">
+    <div class="sobre-nosotros-card">
+        <h2 class="titulo-degrade">SOBRE NOSOTROS</h2>
+        <p>
+            Somos un emprendimiento que lleva a cabo los deseos de nuestros clientes,
+            llevándolos siempre a su mejor versión. Creemos en las ideas que nacen desde
+            el corazón y las transformamos en diseños reales, funcionales y personalizados.
+        </p>
+        <p>
+            Ofrecemos creatividad, diseño, impresión y soluciones digitales para quienes
+            buscan destacar y comunicar de manera única. Cada proyecto es especial, y por eso
+            trabajamos con dedicación y pasión para lograr resultados que sorprendan y superen
+            las expectativas de quienes confían en nosotros.
+        </p>
+    </div>
+</section>
+<section class="team-section">
+    <h2 class="titulo-degrade">Nuestro Equipo</h2>
 
-  <main id="principal">
-    <section class="presentacion">
-      <img src="primera.jpeg" alt="Imagen de trabajos">
-      <h2>IDEARTE</h2>
-      <p>Es un emprendimiento que lleva a cabo los deseos de nuestros clientes, 
-         y llevándolos a su mejor versión de los mismos.</p>
-      </div>
+    <div class="carousel-container">
+        <button class="carousel-btn prev">‹</button>
 
-    <div class="descripcion">
-      <p>
-        Desde 2020, nuestros trabajos han evolucionado cada vez más y estamos 
-        trabajando para mejorar nuestros materiales y la calidad de los servicios 
-        para poder brindarles lo mejor de lo mejor.
-      </p>
-      <div class="galeria">
-        <img src="../static/images/primera.jpeg" alt="Trabajo 1">
-        <img src="../static/images/segunda.jpeg" alt="Trabajo 2">
-        <img src="../static/images/cuarta.jpeg" alt="Trabajo 3">
-        <img src="../static/images/tercera.jpeg" alt="Trabajo 4">
-        <img src="../static/images/mia.jpeg" alt="">
-        <img src="../static/images/morella.jpeg" alt="">
-        <img src="../static/images/holaa.jpeg" alt="">
-        <img src="../static/images/sexta.jpeg" alt="">
-        <img src="../static/images/casamiento.jpeg" alt="">
-        
-      </div>
+        <div class="team-carousel">
+
+            <!-- PERSONA 1 -->
+            <div class="team-card">
+                <img src="https://media.istockphoto.com/id/1389348844/es/foto/foto-de-estudio-de-una-hermosa-joven-sonriendo-mientras-est%C3%A1-de-pie-sobre-un-fondo-gris.jpg?s=612x612&w=0&k=20&c=kUufmNoTnDcRbyeHhU1wRiip-fNjTWP9owjHf75frFQ=" alt="Trabajador 1">
+                <h3>Diana Gonzalez</h3>
+                <span class="titulo-profesion">Diseñadora Gráfica</span>
+                <p>Especialista en branding y diseño visual. Graduada en la Universidad de Palermo (UP). Ella es la creadora de nuestro emprendimiento, gracias a Valen el emprendimiento pudo ser exitoso y dar trabajo a profesionales</p>
+            </div>
+
+            <!-- PERSONA 2 -->
+            <div class="team-card">
+                <img src="https://img.freepik.com/foto-gratis/joven-hombre-barbudo-camisa-rayas_273609-5677.jpg?semt=ais_hybrid&w=740&q=80" alt="Trabajador 2">
+                <h3>Martín Herrera</h3>
+                <span class="titulo-profesion">Community Manager</span>
+                <p>Experto en redes sociales y contenido estratégico. Licenciado en la UADE — Comunicación y Medios, con reocnocimentos especiales por el manejo experto de la computadora</p>
+            </div>
+
+            <!-- PERSONA 3 -->
+            <div class="team-card">
+                <img src="https://img.freepik.com/foto-gratis/estilo-vida-emociones-gente-concepto-casual-confiado-agradable-sonriente-mujer-asiatica-brazos-cruzados-pecho-seguro-listo-ayudar-escuchando-companeros-trabajo-participando-conversacion_1258-59335.jpg?semt=ais_hybrid&w=740&q=80" alt="Trabajador 3">
+                <h3>Lucía Benítez</h3>
+                <span class="titulo-profesion">Lic. en Marketing</span>
+                <p>Planifica campañas creativas y eficientes, se especializa en estudios de mercado y análisis de consumidores. Graduada en la Universidad Nacional de Quilmes (UNQ)</p>
+            </div>
+
+            <!-- PERSONA 4 -->
+            <div class="team-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJMNmNBhBmNRl8xRID5SJ4JnENxUpn9Jv7yQ&s" alt="Trabajador 4">
+                <h3>Tomás Rivas</h3>
+                <span class="titulo-profesion">Desarrollador Web</span>
+                <p>Crea experiencias digitales rápidas y funcionales y construye sitios modernos, rápidos y totalmente responsive, además maneja HTML, CSS, JavaScript, frameworks y CMS.</p>
+            </div>
+
+            <!-- PERSONA 5 -->
+            <div class="team-card">
+                <img src="https://b2472105.smushcdn.com/2472105/wp-content/uploads/2023/09/Poses-Perfil-Profesional-Mujeres-ago.-10-2023-1-819x1024.jpg?lossy=1&strip=1&webp=1" alt="Trabajador 5">
+                <h3>Sofía Marini</h3>
+                <span class="titulo-profesion">Lic. en Comunicación Social</span>
+                <p>Experta en storytelling y estrategia comunicacional. Experta en storytelling, prensa y comunicación institucional y redacta contenidos claros, atractivos y alineados con la identidad de marca.</p>
+            </div>
+
+            <!-- PERSONA 6 -->
+            <div class="team-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUcNdEFR29DXre9LTLKm6c4tVsc8hODLXlYg&s" alt="Trabajador 6">
+                <h3>Diego Peralta</h3>
+                <span class="titulo-profesion">Editor Audiovisual</span>
+                <p>Producción de videos profesionales y dinámicos. Manejo avanzado de Adobe Premiere, After Effects y DaVinci Resolve, tmabién crea piezas audiovisuales dinámicas para redes, campañas y presentaciones</p>
+            </div>
+
+            <!-- PERSONA 7 -->
+            <div class="team-card">
+                <img src="https://b2472105.smushcdn.com/2472105/wp-content/uploads/2023/09/Poses-Perfil-Profesional-Mujeres-jul.-12-2023-1-819x1024.jpg?lossy=1&strip=1&webp=1" alt="Trabajador 7">
+                <h3>Camila Torres</h3>
+                <span class="titulo-profesion">Fotógrafa Profesional</span>
+                <p>Captura imágenes con calidad e identidad visual.Captura imágenes con estética cuidada, iluminación precisa y estilo propio. Experta en fotografía de producto, retratos y sesiones creativas.</p>
+            </div>
+
+        </div>
+
+        <button class="carousel-btn next"></button>
+    </div>
+</section>
+<section class="servicios-section" id="servicios">
+
+    <h2 class="titulo-degrade">Nuestros Servicios</h2>
+
+    <div class="servicios-grid">
+
+        <!-- 1. TARJETERÍA -->
+        <div class="servicio-card" id="tarjeteria">
+            <h3>Tarjetería Personalizada</h3>
+            <ul>
+                <li>Invitaciones digitales o impresas</li>
+                <li>Diseño a medida: formas, colores y estilos</li>
+                <li>Identidad visual personalizada</li>
+                <li>Entrega lista para impresión o envío digital</li>
+            </ul>
+            <button class="btn-idearte" onclick="window.location.href='tarjereria.html'">
+              Ver Catálogo
+            </button>
+
+        </div>
+
+        <!-- 2. DISEÑOS EXCLUSIVOS -->
+        <div class="servicio-card" id="disenos">
+            <h3>Diseños 100% a tu Medida</h3>
+            <ul>
+                <li>Diseño desde cero según tus ideas</li>
+                <li>Combinación profesional de tipografías</li>
+                <li>Edición fina y resultados únicos</li>
+                <li>Archivos finales de alta calidad</li>
+            </ul>
+            <button class="btn-idearte" onclick="window.location.href='disenos.html'">
+               Ver Catálogo
+            </button>
+
+        </div>
+
+        <!-- 4. IMPRESIONES -->
+        <div class="servicio-card" id="impresiones">
+            <h3>Impresiones de Alta Calidad</h3>
+            <ul>
+                <li>Más de 10 sucursales en CABA y GBA</li>
+                <li>Materiales premium y terminaciones</li>
+                <li>Producción rápida</li>
+                <li>Asesoramiento en papeles y acabados</li>
+            </ul>
+            <button class="btn-idearte" onclick="window.location.href='impresiones.html'">
+               Ver Catálogo
+            </button>
+        </div>
+
+        <!-- 5. SITIOS WEB -->
+        <div class="servicio-card" id="sitios-web">
+            <h3>Desarrollo de Sitios Web</h3>
+            <ul>
+                <li>Webs modernas y responsivas</li>
+                <li>Diseño a medida</li>
+                <li>SEO técnico</li>
+                <li>Integración con redes sociales</li>
+            </ul>
+            <button class="btn-idearte" onclick="window.location.href='sotios-web.html'">
+              Ver Catálogo
+            </button>
+        </div>
+
+        <!-- 6. REDES SOCIALES -->
+        <div class="servicio-card" id="redes-sociales">
+            <h3>Manejo de Redes Sociales</h3>
+            <ul>
+                <li>Planificación y diseño de contenido</li>
+                <li>Fotografías profesionales</li>
+                <li>Estrategia digital</li>
+                <li>Análisis de métricas</li>
+            </ul>
+            <button class="btn-idearte" onclick="window.location.href='redes.html'">
+              Ver Catálogo
+            </button>
+        </div>
+
+    </div>
+</section>
+<section id="consultas" class="form-section">
+    <h2 class="titulo-degrade">Contacto</h2>
+
+    <form class="idearte-form">
+        <div class="form-group">
+            <label>Nombre</label>
+            <input type="text" placeholder="Tu nombre completo" required>
+        </div>
+
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" placeholder="ejemplo@gmail.com" required>
+        </div>
+
+        <div class="form-group">
+            <label>Teléfono</label>
+            <input type="tel" placeholder="11 2345 6789">
+        </div>
+
+        <div class="form-group">
+            <label>Mensaje</label>
+            <textarea rows="4" placeholder="Contame qué necesitas ♥" required></textarea>
+        </div>
+
+        <button type="submit" class="btn-idearte">Enviar Mensaje</button>
+    </form>
+</section>
+
+<footer class="footer-idearte">
+    <div class="footer-content">
+
+        <!-- LOGO + DESCRIPCIÓN -->
+        <div class="footer-logo">
+            <h2>Idearte</h2>
+            <p>Diseño • Impresiones • Web • Redes Sociales</p>
+        </div>
+
+        <!-- ENLACES -->
+        <div class="footer-links">
+            <h3>Servicios</h3>
+            <ul>
+                <li><a href="#tarjeteria">Tarjetería</a></li>
+                <li><a href="#disenos">Diseños a Medida</a></li>
+                <li><a href="#vectorizados">Vectorizados</a></li>
+                <li><a href="#impresiones">Impresiones</a></li>
+                <li><a href="#sitios-web">Sitios Web</a></li>
+                <li><a href="#redes-sociales">Redes Sociales</a></li>
+            </ul>
+        </div>
+
+        <!-- CONTACTO -->
+        <div class="footer-contacto">
+            <h3>Contacto</h3>
+            <p><strong>Email:</strong> idearte@gmail.com</p>
+            <p><strong>Tel:</strong> +54 11 6127-7512</p>
+
+            <!-- ICONOS DE REDES -->
+            <div class="footer-redes">
+                <!-- INSTAGRAM ICON OFICIAL -->
+                <a href="https://www.instagram.com/idearte.solucionesdigitales?igsh=MXMxMzRuMXh2ZTFxdA==" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" alt="Instagram">
+                </a>
+                <a href="https://www.facebook.com/share/1BGZ922oLe/" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Facebook_icon.svg" alt="Facebook">
+                </a>
+            </div>
+        </div>
+
     </div>
 
-    <div class="lista-trabajos">
-      <h3>Trabajos que realizamos:</h3>
-      <ul>
-        <li>Tarjetería personalizada</li>
-        <li>Anillado de libros</li>
-        <li>Diseño digital</li>
-        <li>Decoraciones impresas</li>
-        <li>Targeteria con muchos tipos de papel</li>
-        <li>Libros digitales</li>
-        <li>Impresiones a pedido</li>
-        <li>Invitaciones personalizadas, digitales o fisicas</li>
-        <li>
-          Organizacion de eventos, cumpleaños de 15 y casamientos
-        </li>
+    <div class="footer-bottom">
+        <p>© 2025 Idearte — Todos los derechos reservados</p>
     </div>
-  </main>
+</footer>
 
-  <footer id="pie">
-    <p>Para más información, llámanos al +11 1111 1111</p>
-    <label for="comentarios">Déjanos tu comentario:</label><br>
-    <input type="text" id="comentarios" name="comentarios" placeholder="Escribe aquí tu opinión...">
-  </footer>
+
+<script>
+    const carousel = document.querySelector('.team-carousel');
+    const next = document.querySelector('.next');
+    const prev = document.querySelector('.prev');
+
+    let scrollAmount = 0;
+
+    next.addEventListener('click', () => {
+        scrollAmount += 320;
+        carousel.scrollTo({
+            left: scrollAmount,
+            behavior: 'smooth'
+        });
+    });
+
+    prev.addEventListener('click', () => {
+        scrollAmount -= 320;
+        carousel.scrollTo({
+            left: scrollAmount,
+            behavior: 'smooth'
+        });
+    });
+</script>
 
 </body>
 </html>
